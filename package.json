@@ -1,0 +1,31 @@
+{
+  "name": "@lamnhan/svgaricons",
+  "version": "0.0.1",
+  "description": "Another way to use SVG icons.",
+  "author": "Lam Nhan",
+  "license": "MIT",
+  "keywords": [
+    "sass",
+    "scss",
+    "css",
+    "svg",
+    "icons"
+  ],
+  "scripts": {
+    "compile": "sass --watch src/svgaricons.scss:docs/svgaricons.css docs/index.scss:docs/index.css",
+    "launch": "superstatic docs --port 3000",
+    "serve": "concurrently --kill-others \"npm run compile\" \"npm run launch\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lamnhan/svgaricons.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lamnhan/svgaricons/issues"
+  },
+  "devDependencies": {
+    "concurrently": "^7.1.0",
+    "sass": "^1.51.0",
+    "superstatic": "^8.0.0"
+  }
+}

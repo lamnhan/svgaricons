@@ -1,0 +1,29 @@
+@import '../src/svgaricons.scss';
+
+:root {
+  --color-primary: #3880ff;
+  --color-secondary: #eb445a;
+  --color-success: #2dd36f;
+  --recolor-primary: brightness(0) saturate(100%) invert(37%) sepia(73%) saturate(1013%) hue-rotate(193deg) brightness(106%) contrast(104%);
+  --recolor-secondary: brightness(0) saturate(100%) invert(45%) sepia(84%) saturate(2892%) hue-rotate(324deg) brightness(91%) contrast(102%);
+  --recolor-success: brightness(0) saturate(100%) invert(90%) sepia(90%) saturate(2470%) hue-rotate(65deg) brightness(90%) contrast(82%);
+  --gradient-primary: linear-gradient(45deg, #13abdb, #B10DC9);
+  --gradient-secondary: linear-gradient(80deg, #ffa500, #8b0000);
+  --gradient-success: linear-gradient(180deg, #28d6e4, #04f44f);
+}
+
+@include svgaricons(
+  (
+    github: 'https://icons.getbootstrap.com/assets/icons/github.svg',
+    githubx: 'https://img.icons8.com/nolan/32/github.svg',
+    google: 'https://icons.getbootstrap.com/assets/icons/google.svg',
+    googlex: 'https://img.icons8.com/fluency/32/000000/google-logo.svg',
+    apple: 'https://icons.getbootstrap.com/assets/icons/apple.svg',
+    applex: 'https://img.icons8.com/fluency/32/000000/mac-os.svg',
+  ),
+  (
+    sizes: (10, 16, 32, 48, 64),
+    colors: ('primary', 'secondary', 'success'),
+    gradients: ('primary', 'secondary', 'success'),
+  )
+);
