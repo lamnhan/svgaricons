@@ -1,4 +1,4 @@
-@mixin svgaricons($icons, $variants: (), $options: ()) {
+@mixin svgricons($icons, $variants: (), $options: ()) {
   $sizes: map-get($variants, 'sizes');
   $colors: map-get($variants, 'colors');
   $gradients: map-get($variants, 'gradients');

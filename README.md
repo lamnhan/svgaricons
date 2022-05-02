@@ -1,11 +1,11 @@
-# SVG-ar-ICONS
+# SVG-r-ICONS
 
 Another way to use SVG icons. It's "SUGAR ICONS", baby!
 
 ## Install
 
 ```bash
-npm i @lamnhan/svgaricons
+npm i @lamnhan/svgricons
 ```
 
 ## Usage
@@ -13,7 +13,7 @@ npm i @lamnhan/svgaricons
 - Register icons (ex.: `_icons.scss`):
 
 ```scss
-@import '@lamnhan/svgaricons';
+@import '@lamnhan/svgricons';
 
 /*
  * Define theme palettes
@@ -38,7 +38,7 @@ npm i @lamnhan/svgaricons
  * Ontion 1: simple icons
  */
 
-@include svgaricons(
+@include svgricons(
   (
     xxx1: 'path/to/svg',
     xxx_2: 'path/to/svg',
@@ -49,7 +49,7 @@ npm i @lamnhan/svgaricons
 /*
  * Ontion 2: icons with variants (size, color)
  */
-@include svgaricons(
+@include svgricons(
   (/* ... */),
   (
     sizes: (10, 16, 32, 48, 64),
@@ -88,7 +88,7 @@ npm i @lamnhan/svgaricons
 Pass options using the third parameter.
 
 ```scss
-@include svgaricons(
+@include svgricons(
   (/* ... */),
   (/* ... */),
   (
@@ -105,4 +105,4 @@ Pass options using the third parameter.
 
 ## License
 
-**@lamnhan/svgaricons** is released under the [MIT](https://github.com/lamnhan/svgaricons/blob/master/LICENSE) license.
+**@lamnhan/svgricons** is released under the [MIT](https://github.com/lamnhan/svgricons/blob/master/LICENSE) license.
