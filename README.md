@@ -1,25 +1,22 @@
 # SVG-r-ICONS
 
-Another way to use SVG icons. It's "SUGAR ICONS", baby!
+Another way to use SVG icons with SCSS. It's "SUGAR ICONS", baby!
+
+Demo: <https://svgricons.lamnhan.com>
 
 ## Install
 
-```bash
+```sh
 npm i @lamnhan/svgricons
 ```
 
 ## Usage
 
-- Register icons (ex.: `_icons.scss`):
+- Step 1: Define theme palettes (ex.: `_variables.scss`)
+
+(Use this tool for recoloring: https://angel-rs.github.io/css-color-filter-generator/)
 
 ```scss
-@import '@lamnhan/svgricons';
-
-/*
- * Define theme palettes
- * (use this tool for recoloring: https://angel-rs.github.io/css-color-filter-generator/)
- */
-
 :root {
 
   // colors
@@ -33,22 +30,23 @@ npm i @lamnhan/svgricons
   --recolor-success: brightness(0) saturate(100%) invert(90%) sepia(90%) saturate(2470%) hue-rotate(65deg) brightness(90%) contrast(82%);
 
 }
+```
 
-/*
- * Ontion 1: simple icons
- */
+- Step 2: Register icons (ex.: `_icons.scss`):
 
+```scss
+@import '@lamnhan/svgricons';
+
+// Option 1: simple icons
 @include svgricons(
   (
-    xxx1: 'path/to/svg',
-    xxx_2: 'path/to/svg',
-    xxx_3: 'path/to/svg',
+    xxx: 'path/to/svg',
+    yyy: 'path/to/svg',
+    zzz: 'path/to/svg',
   )
 );
 
-/*
- * Ontion 2: icons with variants (size, color)
- */
+// Ontion 2: icons with custom sizes, colors
 @include svgricons(
   (/* ... */),
   (
@@ -59,45 +57,46 @@ npm i @lamnhan/svgricons
 
 ```
 
-- Use the icons (ex.: `index.html`):
+- Step 3: Use the icons (ex.: `index.html`):
 
 ```html
-
 <!-- Default -->
-<i class="icon xxx1"></i>
-<i class="icon xxx_2"></i>
-<i class="icon xxx_3"></i>
+<i class="icon xxx"></i>
+<i class="icon yyy"></i>
+<i class="icon zzz"></i>
 
 <!-- Size variants -->
-<i class="icon xxx1 size-48"></i>
+<i class="icon xxx size-48"></i>
 
 <!-- Color variants -->
-<i class="icon xxx1 color-primary"></i>
+<i class="icon xxx color-primary"></i>
 
 <!-- Hovered (different color) -->
-<i class="icon xxx1 hovered-color-secondary"></i>
-<i class="icon xxx1 color-primary hovered-color-success"></i>
+<i class="icon xxx hovered-secondary"></i>
+<i class="icon xxx color-primary hovered-success"></i>
 
 <!-- Hovered (different source) -->
-<i class="icon xxx1 hovered-icon-zzz"></i>
-
+<i class="icon xxx hovered-xxx2"></i>
 ```
 
 ## Options
 
-Pass options using the third parameter.
+You can pass along options using the third parameter.
 
 ```scss
 @include svgricons(
   (/* ... */),
   (/* ... */),
   (
+    // You this if variables have a prefix
+    // ex.: --app-color-primary, --app-recolor-secondary
     var_prefix: 'app',
+    // Naming the classes
     naming: (
-      icon: 'i', // .icon -> .i; .icon-xxx -> .i-xxx
-      size: 's', // .icon-size-32 -> .i-s-32
-      color: 'c', // .icon-xxx-color-primary -> .i-xxx-c-primary
-      hovered: 'h', // .icon-hovered-color-success -> .i-h-c-success
+      icon: 'i', // .icon -> .i
+      size: 's', // .size-32 -> .s-32
+      color: 'c', // .color-primary -> .c-primary
+      hovered: 'h', // .hovered-success -> .h-success
     )
   )
 );

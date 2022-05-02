@@ -27,14 +27,14 @@
   background-image: url("/icons/github.svg");
 }
 
-.icon.githubx {
-  background-image: url("/icons/githubx.svg");
+.icon.github2 {
+  background-image: url("/icons/github2.svg");
 }
 
-.icon-hovered-githubx.icon:hover, .icon-hovered-githubx:hover .icon,
-.hovered-githubx.icon:hover,
-.hovered-githubx:hover .icon {
-  background-image: url("/icons/githubx.svg");
+.icon-hovered-github2.icon:hover, .icon-hovered-github2:hover .icon,
+.hovered-github2.icon:hover,
+.hovered-github2:hover .icon {
+  background-image: url("/icons/github2.svg");
 }
 
 .icon.google {
@@ -47,14 +47,14 @@
   background-image: url("/icons/google.svg");
 }
 
-.icon.googlex {
-  background-image: url("/icons/googlex.svg");
+.icon.google2 {
+  background-image: url("/icons/google2.svg");
 }
 
-.icon-hovered-googlex.icon:hover, .icon-hovered-googlex:hover .icon,
-.hovered-googlex.icon:hover,
-.hovered-googlex:hover .icon {
-  background-image: url("/icons/googlex.svg");
+.icon-hovered-google2.icon:hover, .icon-hovered-google2:hover .icon,
+.hovered-google2.icon:hover,
+.hovered-google2:hover .icon {
+  background-image: url("/icons/google2.svg");
 }
 
 .icon.apple {
@@ -67,14 +67,14 @@
   background-image: url("/icons/apple.svg");
 }
 
-.icon.applex {
-  background-image: url("/icons/applex.svg");
+.icon.apple2 {
+  background-image: url("/icons/apple2.svg");
 }
 
-.icon-hovered-applex.icon:hover, .icon-hovered-applex:hover .icon,
-.hovered-applex.icon:hover,
-.hovered-applex:hover .icon {
-  background-image: url("/icons/applex.svg");
+.icon-hovered-apple2.icon:hover, .icon-hovered-apple2:hover .icon,
+.hovered-apple2.icon:hover,
+.hovered-apple2:hover .icon {
+  background-image: url("/icons/apple2.svg");
 }
 
 .icon.size-10 {

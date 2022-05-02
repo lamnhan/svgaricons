@@ -4,6 +4,10 @@
   "description": "Another way to use SVG icons.",
   "author": "Lam Nhan",
   "license": "MIT",
+  "files": [
+    "index.scss",
+    "src"
+  ],
   "keywords": [
     "sass",
     "scss",

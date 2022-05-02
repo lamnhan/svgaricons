@@ -8,13 +8,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism-themes/1.9.0/prism-material-dark.min.css" integrity="sha512-xkYUyNHum+3ENPH3NP0YcQRYfa3Ocj0jOsRGtcuz3WYVl6YwuVmNpHwiEUrYd7LdMfgbkyt8UvXkoyPVfORS3A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
       font-family: 'Open Sans', sans-serif;
     }
     section {
       width: 100%;
-      max-width: 1024px;
+      max-width: 992px;
       margin: 1rem auto 2rem;
       padding: 1rem;
     }
@@ -26,17 +27,27 @@
     section h2 {
       color: #777777;
     }
-    section .icons {
+    section .content {
+      overflow: hidden;
       margin-top: 1rem;
+      border: 1px solid #2f2f2f;
+      border-radius: 5px;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+    }
+    section .preview {
+      width: 40%;
+      padding: 2rem 1rem;
       display: flex;
       flex-wrap: nowrap;
       align-items: flex-end;
     }
-    section .icons > .icon,
-    section .icons > button {
+    section .preview > .icon,
+    section .preview > button {
       margin-right: 1rem;
     }
-    section .icons > button {
+    section .preview > button {
       cursor: pointer;
       background: none;
       border: 1px solid #777777;
@@ -47,8 +58,15 @@
       flex-wrap: nowrap;
       align-items: center;
     }
-    section .icons > button > span {
+    section .preview > button > span {
       margin-left: 1rem;
+    }
+    section .code {
+      width: 57%;
+      margin-left: 3%;
+    }
+    section .code pre {
+      margin: 0;
     }
   </style>
   <link rel="stylesheet" href="index.css">
@@ -57,69 +75,180 @@
 
   <section>
     <h1>SVG-r-ICONS!</h1>
-    <p>Detail usage: <a href="https://github.com/lamnhan/svgricons" target="_blank">https://github.com/lamnhan/svgricons</a></p>
+    <p><strong><em>Another way to use SVG icons with SCSS. It's "SUGAR ICONS", baby!</em></strong></p>
+    <p>Source code: <a href="https://github.com/lamnhan/svgricons" target="_blank">https://github.com/lamnhan/svgricons</a></p>
+    <p><br></p>
+    <p><strong>Why SVG, why not Font icons?</strong></p>
+    <p>Consider the graphical design background, I personally refer the SVG icons over the Font icons because with SVG I can easily build my own icon packs (no matter if a website has 1 icon or hundreds), as well as the ability to customize the SVG image ifself.</p>
   </section>
 
-  <section class="default">
-    <h2>Default</h2>
-    <div class="icons">
-      <i class="icon github"></i>
-      <i class="icon google"></i>
-      <i class="icon apple"></i>
-    </div>
+  <section class="install">
+    <h2>1. Install</h2>
+    <pre><code class="language-html">npm i @lamnhan/svgricons</code></pre>
   </section>
 
-  <section class="variants">
-    <h2>Variants</h2>
-    <div class="icons">
-      <i class="icon githubx"></i>
-      <i class="icon googlex"></i>
-      <i class="icon applex"></i>
-    </div>
+  <section class="theme">
+    <h2>2. Define the theme</h2>
+    <pre><code class="language-scss">:root {
+  // colors
+  --color-primary: #3880ff;
+  --color-secondary: #eb445a;
+  --color-success: #2dd36f;
+  // recolors
+  --recolor-primary: brightness(0) saturate(100%) invert(37%) sepia(73%) saturate(1013%) hue-rotate(193deg) brightness(106%) contrast(104%);
+  --recolor-secondary: brightness(0) saturate(100%) invert(45%) sepia(84%) saturate(2892%) hue-rotate(324deg) brightness(91%) contrast(102%);
+  --recolor-success: brightness(0) saturate(100%) invert(90%) sepia(90%) saturate(2470%) hue-rotate(65deg) brightness(90%) contrast(82%);
+}</code></pre>
+  <p>P/S: Use this tool for recoloring: <a href="https://angel-rs.github.io/css-color-filter-generator/" target="_blank">https://angel-rs.github.io/css-color-filter-generator/</a></p>
   </section>
 
-  <section class="sizes">
-    <h2>Sizes</h2>
-    <div class="icons">
-      <i class="icon apple size-10"></i>
-      <i class="icon apple size-16"></i>
-      <i class="icon apple size-32"></i>
-      <i class="icon apple size-48"></i>
-      <i class="icon apple size-64"></i>
-    </div>
+  <section class="register">
+    <h2>3. Register icons</h2>
+    <pre><code class="language-scss">@import '@lamnhan/svgricons';
+// Option 1: simple icons
+@include svgricons(
+  (
+    github: '/icons/github.svg',
+    github2: '/icons/github2.svg', // variant of 'github'
+    google: '/icons/google.svg',
+    google2: '/icons/google2.svg', // variant of 'google'
+    apple: '/icons/apple.svg',
+    apple2: '/icons/apple2.svg', // variant of 'apple'
+  )
+);
+// Ontion 2: icons with custom sizes, colors
+@include svgricons(
+  (/* ... */),
+  (
+    sizes: (10, 16, 32, 48, 64),
+    colors: ('primary', 'secondary', 'success'),
+  )
+);</code></pre>
   </section>
 
-  <section class="colors">
-    <h2>Colors</h2>
-    <div class="icons">
-      <i class="icon github size-64 color-primary"></i>
-      <i class="icon google size-64 color-secondary"></i>
-      <i class="icon apple size-64 color-success"></i>
-    </div>
+  <section class="usage">
+    <h2>4. Usage</h2>
+
+    <section class="default">
+      <h3>Default</h3>
+      <div class="content">
+        <div class="preview">
+          <i class="icon github"></i>
+          <i class="icon google"></i>
+          <i class="icon apple"></i>
+        </div>
+        <div class="code">
+          <pre><code class="language-html">&lt;i class="icon github"&gt;&lt;/i&gt;
+&lt;i class="icon google"&gt;&lt;/i&gt;
+&lt;i class="icon apple"&gt;&lt;/i&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+  
+    <section class="variants">
+      <h3>Variants</h3>
+      <div class="content">
+        <div class="preview">
+          <i class="icon github2"></i>
+          <i class="icon google2"></i>
+          <i class="icon apple2"></i>
+        </div>
+        <div class="code">
+          <pre><code class="language-html">&lt;i class="icon github2"&gt;&lt;/i&gt;
+&lt;i class="icon google2"&gt;&lt;/i&gt;
+&lt;i class="icon apple2"&gt;&lt;/i&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+  
+    <section class="sizes">
+      <h3>Sizes</h3>
+      <div class="content">
+        <div class="preview">
+          <i class="icon apple size-10"></i>
+          <i class="icon apple size-16"></i>
+          <i class="icon apple size-32"></i>
+          <i class="icon apple size-48"></i>
+          <i class="icon apple size-64"></i>
+        </div>
+        <div class="code">
+          <pre><code class="language-html">&lt;i class="icon apple size-10"&gt;&lt;/i&gt;
+&lt;i class="icon apple size-16"&gt;&lt;/i&gt;
+&lt;i class="icon apple size-32"&gt;&lt;/i&gt;
+&lt;i class="icon apple size-48"&gt;&lt;/i&gt;
+&lt;i class="icon apple size-64"&gt;&lt;/i&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+  
+    <section class="colors">
+      <h3>Colors</h3>
+      <div class="content">
+        <div class="preview">
+          <i class="icon github size-48 color-primary"></i>
+          <i class="icon google size-48 color-secondary"></i>
+          <i class="icon apple size-48 color-success"></i>
+        </div>
+        <div class="code">
+          <pre><code class="language-html">&lt;i class="icon github size-48 color-primary"&gt;&lt;/i&gt;
+&lt;i class="icon google size-48 color-secondary"&gt;&lt;/i&gt;
+&lt;i class="icon apple size-48 color-success"&gt;&lt;/i&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+  
+    <section class="hovered_colors">
+      <h3>Hovered (colors)</h3>
+      <div class="content">
+        <div class="preview">
+          <i class="icon google size-48 hovered-primary"></i>
+          <i class="icon google size-48 color-primary hovered-secondary"></i>
+          <button class="icon-hovered-success" style="margin-bottom: -.25rem;">
+            <i class="icon google"></i>
+            <span>Hover me</span>
+          </button>
+        </div>
+        <div class="code">
+          <pre><code class="language-html">&lt;i class="icon google size-48 hovered-primary"&gt;&lt;/i&gt;
+&lt;i class="icon google size-48 color-primary hovered-secondary"&gt;&lt;/i&gt;
+&lt;button class="icon-hovered-success"&gt;
+  &lt;i class="icon google"&gt;&lt;/i&gt;
+  &lt;span&gt;Hover me&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+  
+    <section class="hovered_sources">
+      <h3>Hovered (different sources)</h3>
+      <div class="content">
+        <div class="preview">
+          <i class="icon apple size-48 hovered-apple2"></i>
+          <i class="icon apple2 size-48 hovered-apple"></i>
+          <button class="icon-hovered-apple2" style="margin-bottom: -.25rem;">
+            <i class="icon apple"></i>
+            <span>Hover me</span>
+          </button>
+        </div>
+        <div class="code">
+          <pre><code class="language-html">&lt;i class="icon apple size-48 hovered-apple2"&gt;&lt;/i&gt;
+&lt;i class="icon apple2 size-48 hovered-apple"&gt;&lt;/i&gt;
+&lt;button class="icon-hovered-apple2"&gt;
+  &lt;i class="icon apple"&gt;&lt;/i&gt;
+  &lt;span&gt;Hover me&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+        </div>
+      </div>
+    </section>
+
   </section>
 
-  <section class="hovered_colors">
-    <h2>Hovered (colors)</h2>
-    <div class="icons">
-      <i class="icon apple size-48 hovered-primary"></i>
-      <i class="icon apple size-48 color-primary hovered-secondary"></i>
-      <button class="icon-hovered-success" style="margin-bottom: -.25rem;">
-        <i class="icon google"></i>
-        <span>Hover me</span>
-      </button>
-    </div>
-  </section>
-
-  <section class="hovered_sources">
-    <h2>Hovered (different sources)</h2>
-    <div class="icons">
-      <i class="icon google size-48 hovered-googlex"></i>
-      <button class="icon-hovered-googlex" style="margin-bottom: -.25rem;">
-        <i class="icon google"></i>
-        <span>Hover me</span>
-      </button>
-    </div>
+  <section class="license">
+    <h2>License</h2>
+    <p><strong>@lamnhan/svgricons</strong> is released under the <a href="https://github.com/lamnhan/svgricons/blob/master/LICENSE" target="_blank">MIT</a> license.</p>
   </section>
   
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/prism.min.js" integrity="sha512-RDQSW3KoqJMiX0L/UBgwBmH1EmRYp8LBOiLaA8rBHIy+7OGP/7Gxg8vbt8wG4ZYd29P0Fnoq6+LOytCqx3cyoQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-scss.min.js" integrity="sha512-aczOaJ+mB9uGT6dMJbDaUsS2PWG+XII+1ypFQ0L22Z132V6kMM6m70pQssXsPAFmLI5xkgx/hknBuUuJIJKZfA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 </html>
