@@ -1,50 +1,53 @@
-@mixin svgaricons($icons, $options: ()) {
-  @include base;
+@mixin svgaricons($icons, $variants: (), $options: ()) {
+  $sizes: map-get($variants, 'sizes');
+  $colors: map-get($variants, 'colors');
+  $gradients: map-get($variants, 'gradients');
+  $naming: (); $_naming: map-get($options, 'naming'); @if $_naming != null { $naming: $_naming }
+  $base_class: 'icon'; $_base_class: map-get($naming, 'icon'); @if $_base_class != null { $base_class: $_base_class }
+  $size_prefix: 'size'; $_size_prefix: map-get($naming, 'size'); @if $_size_prefix != null { $size_prefix: $_size_prefix }
+  $color_prefix: 'color'; $_color_prefix: map-get($naming, 'color'); @if $_color_prefix != null { $color_prefix: $_color_prefix }
+  $hovered_prefix: 'hovered'; $_hovered_prefix: map-get($naming, 'hovered'); @if $_hovered_prefix != null { $hovered_prefix: $_hovered_prefix }
   $var_prefix: map-get($options, 'var_prefix');
-  $sizes: map-get($options, 'sizes');
-  $colors: map-get($options, 'colors');
-  $gradients: map-get($options, 'gradients');
+  .#{$base_class} {
+    content: '';
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 2rem;
+    height: 2rem;
+  }
   @each $name, $url in $icons {
-    .icon-#{$name} {
+    .#{$base_class}.#{$name} {
       background-image: url('#{$url}');
     }
-    .icon-hovered-icon-#{$name} {
-      &.icon:hover, &:hover .icon {
+    .#{$base_class}-#{$hovered_prefix}-#{$name},
+    .#{$hovered_prefix}-#{$name} {
+      &.#{$base_class}:hover, &:hover .#{$base_class} {
         background-image: url('#{$url}');
       }
     }
-    @if $sizes != null {
-      @each $size in $sizes {
-        .icon-size-#{$size} {
-          width: #{$size}px;
-          height: #{$size}px;
-        }
+  }
+  @if $sizes != null {
+    @each $size in $sizes {
+      .#{$base_class}.#{$size_prefix}-#{$size} {
+        width: #{$size}px;
+        height: #{$size}px;
       }
     }
-    @if $colors != null {
-      @each $color in $colors {
-        .icon-#{$name}-color-#{$color} {
-          @extend .icon-#{$name};
+  }
+  @if $colors != null {
+    @each $color in $colors {
+      .#{$base_class}.#{$color_prefix}-#{$color} {
+        @include recolor($color, $var_prefix);
+      }
+      .#{$base_class}-#{$hovered_prefix}-#{$color},
+      .#{$hovered_prefix}-#{$color} {
+        &.#{$base_class}:hover, &:hover .#{$base_class} {
           @include recolor($color, $var_prefix);
         }
-        .icon-hovered-color-#{$color} {
-          &.icon:hover, &:hover .icon {
-            @include recolor($color, $var_prefix);
-          }
-        }
       }
     }
-    // @if $gradients != null {
-    //   @each $gradient in $gradients {
-    //     .icon-#{$name}-gradient-#{$gradient} {
-    //       @if $var_prefix != null {
-    //         background-image: url('#{$url}'), var(--#{$var_prefix}-gradient-#{$gradient});
-    //       } @else {
-    //         background-image: url('#{$url}'), var(--gradient-#{$gradient});
-    //       }
-    //     }
-    //   }
-    // }
   }
 }
 
@@ -53,17 +56,5 @@
     filter: var(--#{$var_prefix}-recolor-#{$color});
   } @else {
     filter: var(--recolor-#{$color});
-  }
-}
-
-@mixin base {
-  .icon {
-    display: inline-block;
-    content: '';
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-    width: 2rem;
-    height: 2rem;
   }
 }

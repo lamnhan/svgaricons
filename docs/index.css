@@ -5,14 +5,11 @@
   --recolor-primary: brightness(0) saturate(100%) invert(37%) sepia(73%) saturate(1013%) hue-rotate(193deg) brightness(106%) contrast(104%);
   --recolor-secondary: brightness(0) saturate(100%) invert(45%) sepia(84%) saturate(2892%) hue-rotate(324deg) brightness(91%) contrast(102%);
   --recolor-success: brightness(0) saturate(100%) invert(90%) sepia(90%) saturate(2470%) hue-rotate(65deg) brightness(90%) contrast(82%);
-  --gradient-primary: linear-gradient(45deg, #13abdb, #B10DC9);
-  --gradient-secondary: linear-gradient(80deg, #ffa500, #8b0000);
-  --gradient-success: linear-gradient(180deg, #28d6e4, #04f44f);
 }
 
 .icon {
-  display: inline-block;
   content: "";
+  display: inline-block;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -20,345 +17,118 @@
   height: 2rem;
 }
 
-.icon-github, .icon-github-color-success, .icon-github-color-secondary, .icon-github-color-primary {
-  background-image: url("https://icons.getbootstrap.com/assets/icons/github.svg");
+.icon.github {
+  background-image: url("/icons/github.svg");
 }
 
-.icon-hovered-icon-github.icon:hover, .icon-hovered-icon-github:hover .icon {
-  background-image: url("https://icons.getbootstrap.com/assets/icons/github.svg");
+.icon-hovered-github.icon:hover, .icon-hovered-github:hover .icon,
+.hovered-github.icon:hover,
+.hovered-github:hover .icon {
+  background-image: url("/icons/github.svg");
 }
 
-.icon-size-10 {
+.icon.githubx {
+  background-image: url("/icons/githubx.svg");
+}
+
+.icon-hovered-githubx.icon:hover, .icon-hovered-githubx:hover .icon,
+.hovered-githubx.icon:hover,
+.hovered-githubx:hover .icon {
+  background-image: url("/icons/githubx.svg");
+}
+
+.icon.google {
+  background-image: url("/icons/google.svg");
+}
+
+.icon-hovered-google.icon:hover, .icon-hovered-google:hover .icon,
+.hovered-google.icon:hover,
+.hovered-google:hover .icon {
+  background-image: url("/icons/google.svg");
+}
+
+.icon.googlex {
+  background-image: url("/icons/googlex.svg");
+}
+
+.icon-hovered-googlex.icon:hover, .icon-hovered-googlex:hover .icon,
+.hovered-googlex.icon:hover,
+.hovered-googlex:hover .icon {
+  background-image: url("/icons/googlex.svg");
+}
+
+.icon.apple {
+  background-image: url("/icons/apple.svg");
+}
+
+.icon-hovered-apple.icon:hover, .icon-hovered-apple:hover .icon,
+.hovered-apple.icon:hover,
+.hovered-apple:hover .icon {
+  background-image: url("/icons/apple.svg");
+}
+
+.icon.applex {
+  background-image: url("/icons/applex.svg");
+}
+
+.icon-hovered-applex.icon:hover, .icon-hovered-applex:hover .icon,
+.hovered-applex.icon:hover,
+.hovered-applex:hover .icon {
+  background-image: url("/icons/applex.svg");
+}
+
+.icon.size-10 {
   width: 10px;
   height: 10px;
 }
 
-.icon-size-16 {
+.icon.size-16 {
   width: 16px;
   height: 16px;
 }
 
-.icon-size-32 {
+.icon.size-32 {
   width: 32px;
   height: 32px;
 }
 
-.icon-size-48 {
+.icon.size-48 {
   width: 48px;
   height: 48px;
 }
 
-.icon-size-64 {
+.icon.size-64 {
   width: 64px;
   height: 64px;
 }
 
-.icon-github-color-primary {
+.icon.color-primary {
   filter: var(--recolor-primary);
 }
 
-.icon-hovered-color-primary.icon:hover, .icon-hovered-color-primary:hover .icon {
+.icon-hovered-primary.icon:hover, .icon-hovered-primary:hover .icon,
+.hovered-primary.icon:hover,
+.hovered-primary:hover .icon {
   filter: var(--recolor-primary);
 }
 
-.icon-github-color-secondary {
+.icon.color-secondary {
   filter: var(--recolor-secondary);
 }
 
-.icon-hovered-color-secondary.icon:hover, .icon-hovered-color-secondary:hover .icon {
+.icon-hovered-secondary.icon:hover, .icon-hovered-secondary:hover .icon,
+.hovered-secondary.icon:hover,
+.hovered-secondary:hover .icon {
   filter: var(--recolor-secondary);
 }
 
-.icon-github-color-success {
+.icon.color-success {
   filter: var(--recolor-success);
 }
 
-.icon-hovered-color-success.icon:hover, .icon-hovered-color-success:hover .icon {
-  filter: var(--recolor-success);
-}
-
-.icon-githubx, .icon-githubx-color-success, .icon-githubx-color-secondary, .icon-githubx-color-primary {
-  background-image: url("https://img.icons8.com/nolan/32/github.svg");
-}
-
-.icon-hovered-icon-githubx.icon:hover, .icon-hovered-icon-githubx:hover .icon {
-  background-image: url("https://img.icons8.com/nolan/32/github.svg");
-}
-
-.icon-size-10 {
-  width: 10px;
-  height: 10px;
-}
-
-.icon-size-16 {
-  width: 16px;
-  height: 16px;
-}
-
-.icon-size-32 {
-  width: 32px;
-  height: 32px;
-}
-
-.icon-size-48 {
-  width: 48px;
-  height: 48px;
-}
-
-.icon-size-64 {
-  width: 64px;
-  height: 64px;
-}
-
-.icon-githubx-color-primary {
-  filter: var(--recolor-primary);
-}
-
-.icon-hovered-color-primary.icon:hover, .icon-hovered-color-primary:hover .icon {
-  filter: var(--recolor-primary);
-}
-
-.icon-githubx-color-secondary {
-  filter: var(--recolor-secondary);
-}
-
-.icon-hovered-color-secondary.icon:hover, .icon-hovered-color-secondary:hover .icon {
-  filter: var(--recolor-secondary);
-}
-
-.icon-githubx-color-success {
-  filter: var(--recolor-success);
-}
-
-.icon-hovered-color-success.icon:hover, .icon-hovered-color-success:hover .icon {
-  filter: var(--recolor-success);
-}
-
-.icon-google, .icon-google-color-success, .icon-google-color-secondary, .icon-google-color-primary {
-  background-image: url("https://icons.getbootstrap.com/assets/icons/google.svg");
-}
-
-.icon-hovered-icon-google.icon:hover, .icon-hovered-icon-google:hover .icon {
-  background-image: url("https://icons.getbootstrap.com/assets/icons/google.svg");
-}
-
-.icon-size-10 {
-  width: 10px;
-  height: 10px;
-}
-
-.icon-size-16 {
-  width: 16px;
-  height: 16px;
-}
-
-.icon-size-32 {
-  width: 32px;
-  height: 32px;
-}
-
-.icon-size-48 {
-  width: 48px;
-  height: 48px;
-}
-
-.icon-size-64 {
-  width: 64px;
-  height: 64px;
-}
-
-.icon-google-color-primary {
-  filter: var(--recolor-primary);
-}
-
-.icon-hovered-color-primary.icon:hover, .icon-hovered-color-primary:hover .icon {
-  filter: var(--recolor-primary);
-}
-
-.icon-google-color-secondary {
-  filter: var(--recolor-secondary);
-}
-
-.icon-hovered-color-secondary.icon:hover, .icon-hovered-color-secondary:hover .icon {
-  filter: var(--recolor-secondary);
-}
-
-.icon-google-color-success {
-  filter: var(--recolor-success);
-}
-
-.icon-hovered-color-success.icon:hover, .icon-hovered-color-success:hover .icon {
-  filter: var(--recolor-success);
-}
-
-.icon-googlex, .icon-googlex-color-success, .icon-googlex-color-secondary, .icon-googlex-color-primary {
-  background-image: url("https://img.icons8.com/fluency/32/000000/google-logo.svg");
-}
-
-.icon-hovered-icon-googlex.icon:hover, .icon-hovered-icon-googlex:hover .icon {
-  background-image: url("https://img.icons8.com/fluency/32/000000/google-logo.svg");
-}
-
-.icon-size-10 {
-  width: 10px;
-  height: 10px;
-}
-
-.icon-size-16 {
-  width: 16px;
-  height: 16px;
-}
-
-.icon-size-32 {
-  width: 32px;
-  height: 32px;
-}
-
-.icon-size-48 {
-  width: 48px;
-  height: 48px;
-}
-
-.icon-size-64 {
-  width: 64px;
-  height: 64px;
-}
-
-.icon-googlex-color-primary {
-  filter: var(--recolor-primary);
-}
-
-.icon-hovered-color-primary.icon:hover, .icon-hovered-color-primary:hover .icon {
-  filter: var(--recolor-primary);
-}
-
-.icon-googlex-color-secondary {
-  filter: var(--recolor-secondary);
-}
-
-.icon-hovered-color-secondary.icon:hover, .icon-hovered-color-secondary:hover .icon {
-  filter: var(--recolor-secondary);
-}
-
-.icon-googlex-color-success {
-  filter: var(--recolor-success);
-}
-
-.icon-hovered-color-success.icon:hover, .icon-hovered-color-success:hover .icon {
-  filter: var(--recolor-success);
-}
-
-.icon-apple, .icon-apple-color-success, .icon-apple-color-secondary, .icon-apple-color-primary {
-  background-image: url("https://icons.getbootstrap.com/assets/icons/apple.svg");
-}
-
-.icon-hovered-icon-apple.icon:hover, .icon-hovered-icon-apple:hover .icon {
-  background-image: url("https://icons.getbootstrap.com/assets/icons/apple.svg");
-}
-
-.icon-size-10 {
-  width: 10px;
-  height: 10px;
-}
-
-.icon-size-16 {
-  width: 16px;
-  height: 16px;
-}
-
-.icon-size-32 {
-  width: 32px;
-  height: 32px;
-}
-
-.icon-size-48 {
-  width: 48px;
-  height: 48px;
-}
-
-.icon-size-64 {
-  width: 64px;
-  height: 64px;
-}
-
-.icon-apple-color-primary {
-  filter: var(--recolor-primary);
-}
-
-.icon-hovered-color-primary.icon:hover, .icon-hovered-color-primary:hover .icon {
-  filter: var(--recolor-primary);
-}
-
-.icon-apple-color-secondary {
-  filter: var(--recolor-secondary);
-}
-
-.icon-hovered-color-secondary.icon:hover, .icon-hovered-color-secondary:hover .icon {
-  filter: var(--recolor-secondary);
-}
-
-.icon-apple-color-success {
-  filter: var(--recolor-success);
-}
-
-.icon-hovered-color-success.icon:hover, .icon-hovered-color-success:hover .icon {
-  filter: var(--recolor-success);
-}
-
-.icon-applex, .icon-applex-color-success, .icon-applex-color-secondary, .icon-applex-color-primary {
-  background-image: url("https://img.icons8.com/fluency/32/000000/mac-os.svg");
-}
-
-.icon-hovered-icon-applex.icon:hover, .icon-hovered-icon-applex:hover .icon {
-  background-image: url("https://img.icons8.com/fluency/32/000000/mac-os.svg");
-}
-
-.icon-size-10 {
-  width: 10px;
-  height: 10px;
-}
-
-.icon-size-16 {
-  width: 16px;
-  height: 16px;
-}
-
-.icon-size-32 {
-  width: 32px;
-  height: 32px;
-}
-
-.icon-size-48 {
-  width: 48px;
-  height: 48px;
-}
-
-.icon-size-64 {
-  width: 64px;
-  height: 64px;
-}
-
-.icon-applex-color-primary {
-  filter: var(--recolor-primary);
-}
-
-.icon-hovered-color-primary.icon:hover, .icon-hovered-color-primary:hover .icon {
-  filter: var(--recolor-primary);
-}
-
-.icon-applex-color-secondary {
-  filter: var(--recolor-secondary);
-}
-
-.icon-hovered-color-secondary.icon:hover, .icon-hovered-color-secondary:hover .icon {
-  filter: var(--recolor-secondary);
-}
-
-.icon-applex-color-success {
-  filter: var(--recolor-success);
-}
-
-.icon-hovered-color-success.icon:hover, .icon-hovered-color-success:hover .icon {
+.icon-hovered-success.icon:hover, .icon-hovered-success:hover .icon,
+.hovered-success.icon:hover,
+.hovered-success:hover .icon {
   filter: var(--recolor-success);
 }
 
